@@ -46,7 +46,7 @@ Unfortunately, the application can not have live reload as it messes with it whe
 **Q. Where to download?**
 
 A. Options are listed below. Choose which ever suits you
-1. Linux: AUR, Flathub, or Releases tab for deb, rpm, AppImage, and snap
+1. Linux: ~~AUR, Flathub~~ (coming on main release), or Releases tab for deb, rpm, AppImage, and snap
 2. Windows: Releases tab of this repo
 3. Mac: Build and run from source `¯\_(ツ)_/¯`
 
