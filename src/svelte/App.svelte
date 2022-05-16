@@ -20,23 +20,20 @@
 	import "carbon-components-svelte/css/g90.css";
 	import {quintOut} from "svelte/easing";
 	import { slide } from 'svelte/transition';
-	import {cue} from './utils/lyricCue'
+	import {cue, getLinesAfter, getLinesBefore} from './utils/lyricCue'
 
 	import type {ISettings} from "../electron/utils/electronStore";
 
 
-	let files: ISong[] = [];
-	let queue: ISong[] = [];
-	let index:number = 0;
-	let player:Howl = new Howl({src:['']});
-	let t = 0;
-	let icon: boolean = false;
-	let loading = Promise
-	let lib: ILib
-	let artistN:number = 0
-	let shuffling:boolean = false
-	let yes: boolean = false
 	let agree: boolean = false
+	let artistN:number = 0
+	let files: ISong[] = [];
+	let icon: boolean = false;
+	let index:number = 0;
+	let lib: ILib
+	let linesAft:string[] = []
+	let linesBef:string[] = []
+	let loading = Promise
 	let lyricLine = ''
 	let lyrics:{
 		lines: {
@@ -53,6 +50,7 @@
 			}
 		]
 	}
+	let player:Howl = new Howl({src:['']});
 	let settings:ISettings = {
 		default: "",
 		downloadEnabled: false,
@@ -62,19 +60,29 @@
 		settingsMade: false,
 		showLyrics:true
 	}
+	let shuffling:boolean = false
+	let queue: ISong[] = [];
+	let t = 0;
+	let yes: boolean = false
 
 	loading.resolve()
 	const timer = setInterval(() => {
-		if( t>=~~queue[index].data.format.duration){
-			skip()
+		if(queue[index]){
+			if( t>=~~queue[index].data.format.duration){
+				skip()
+			}
 		}
 		if(player && player.playing()){
 			t++;
 		}
 		if (queue[index].lyrics){
+			// linesBef = getLinesBefore(3, lyrics)
+			// console.log(linesBef)
 			lyricLine = cue(t, lyrics)
+			console.log(lyricLine)
+			// linesAft = getLinesAfter(3, lyrics)
+			// console.log(linesAft)
 		}
-		console.log(t)
 		icon = player.playing()
 	},1000);
 
@@ -87,6 +95,7 @@
 		updateRPC()
 		lyricLine = ''
 		lyrics = parse(queue[index].lyrics)
+		lyrics.lines.unshift({timestamp: 0, time: '00:00.00', content: ''})
 		console.log(lyrics)
 	}
 

@@ -1,6 +1,6 @@
 {
-  "name": "svelte-app",
-  "version": "1.0.0",
+  "name": "mint-music",
+  "version": "0.0.1-INTERNAL-ALPHA",
   "private": true,
   "main": "./build/main.js",
   "author": "Minhtet Htoon",
@@ -12,7 +12,8 @@
     "build": "yarn build:electron && yarn build:svelte",
     "build:electron": "tsc --p tsconfig.electron.json",
     "start": "yarn build:electron && yarn build:svelte && electron .",
-    "check": "svelte-check --tsconfig src/svelte/tsconfig.json"
+    "check": "svelte-check --tsconfig src/svelte/tsconfig.json",
+    "dist": "electron-builder -wl --x64"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
@@ -69,6 +70,11 @@
   },
   "build": {
     "appId": "me.mintyh.mintmusic",
-    "extends": null
+    "extends": null,
+    "files": [
+    "build/**/*",
+    "node_modules/**/*",
+    "package.json"
+  ]
   }
 }

@@ -50,6 +50,9 @@ A. Options are listed below. Choose which ever suits you
 2. Windows: Releases tab of this repo
 3. Mac: Build and run from source `¯\_(ツ)_/¯`
 
+**Q. The CSS sucks/the app is ugly**
+A. Tell me something I didn't know. I do plan on working on it but this is still very early so not gonna be pretty
+
 **Q. Plugins and skins**
 
 A. It's an open-source project. Code your own plugin loader and SDK if you want. Skins are literally just a CSS file or
