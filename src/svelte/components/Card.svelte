@@ -3,20 +3,10 @@
     import { onMount, afterUpdate } from 'svelte';
     import type {IAudioMetadata} from "music-metadata";
 
-
     export let data: IAudioMetadata
     export let URL: string
     export let current:boolean
 
-
-    onMount(() => {
-        // console.log("mount name:", data);
-        // console.log(URL)
-    })
-    afterUpdate(() => {
-        // console.log("after update name:", data);
-        // console.log(URL)
-    })
 </script>
 
 <div  class={`${current?'border-white border-4 border-solid':''} flex flex-row rounded-lg bg-green-600 w-[40vw]`}>

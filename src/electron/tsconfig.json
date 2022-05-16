@@ -6,7 +6,7 @@
     "module": "CommonJS",
     "sourceMap": true,
     "stripInternal": true,
-    "lib": ["es2015", "esnext", "dom"],
+    "lib": ["es2015","es2021", "dom"],
     "moduleResolution": "node",
     "noImplicitAny": true,
     "strictNullChecks": true,

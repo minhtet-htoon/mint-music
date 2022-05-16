@@ -51,6 +51,7 @@ A. Options are listed below. Choose which ever suits you
 3. Mac: Build and run from source `¯\_(ツ)_/¯`
 
 **Q. The CSS sucks/the app is ugly**
+
 A. Tell me something I didn't know. I do plan on working on it but this is still very early so not gonna be pretty
 
 **Q. Plugins and skins**
@@ -71,7 +72,9 @@ A. Soon™
 
 A. No. I don't have a Mac to debug or build on and CI doesn't grow on trees. Also, I'd need a $100 certificate from 
 
-Apple which I can't afford. This doesn't mean the app won't work on Mac, simply follow the above instructions
+Apple which I can't afford. This doesn't mean the app won't work on Mac, simply follow the above instructions. 
+
+It just means there is no official support
 
 **Q. Mobile?**
 

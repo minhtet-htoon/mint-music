@@ -71,17 +71,13 @@
 			if( t>=~~queue[index].data.format.duration){
 				skip()
 			}
+			if (queue[index].lyrics){
+				lyricLine = cue(t, lyrics)
+				console.log(lyricLine)
+			}
 		}
 		if(player && player.playing()){
 			t++;
-		}
-		if (queue[index].lyrics){
-			// linesBef = getLinesBefore(3, lyrics)
-			// console.log(linesBef)
-			lyricLine = cue(t, lyrics)
-			console.log(lyricLine)
-			// linesAft = getLinesAfter(3, lyrics)
-			// console.log(linesAft)
 		}
 		icon = player.playing()
 	},1000);
@@ -270,7 +266,8 @@
 												{:then res}
 													<img class="aspect-square rounded-full" alt={artist.name} src={res}>
 												{:catch err}
-													<img class="aspect-square rounded-3xl" src='https://upload.wikimedia.org/wikipedia/commons/b/bc/Juvenile_Ragdoll.jpg'>
+													<img class="aspect-square rounded-3xl"
+														 src='https://upload.wikimedia.org/wikipedia/commons/b/bc/Juvenile_Ragdoll.jpg'>
 												{/await}
 											</div>
 											<div class="basis-3/4">
@@ -328,11 +325,21 @@
 						<div class="content-center text-justify container w-[40vw]">
 							<div class="h-[40vh] container overflow-y-auto">
 								<h1>PLEASE READ CAREFULLY</h1>
-								<p>I know you probably hate reading these as much as I hate writing them so I'll keep it short </p>
-								<p>The services provided in this portion of the app, unless other wise specified, are NOT provided by Minhtet Htoon, developers of Mint Music or any open source contributors to the project. They were validated to not be malicious on 5/14/2022. THIS COULD CHANGE AT ANY TIME.</p>
-								<p>WE ARE NOT RESPONSIBLE FOR ANY DAMAGES INCURRED ON YOUR DEVICE AS A RESULT OF USING THESES SERVICES. THESE MAY INCLUDE, BUT ARE NOT LIMITED TO, MALWARE, SPYWARE, ADWARE AND RANSOMWARE</p>
-								<p>Services here are linked under the assumption that they are used in accordance with laws in your local jurisdiction.</p>
-								<p>NEITHER MINHTET HTOON, OTHER DEVELOPERS NOR ANY CONTRIBUTORS MAYBE HELD RESPONSIBLE FOR ANY BREACH OF COPYRIGHT, BREACH OF TRADEMARK OR ANY OTHER LEGAL LIABILITY, CRIMINAL OR CIVIL, THAT MAY RESULT FROM IMPROPER USAGE OF THESE SERVICES</p>
+								<p>I know you probably hate reading these as much as I hate writing them so I'll keep it
+									short </p>
+								<p>The services provided in this portion of the app, unless other wise specified, are NOT
+									provided by Minhtet Htoon, developers of Mint Music or any open source contributors
+									to the project. They were validated to not be malicious on 5/14/2022. THIS COULD
+									CHANGE AT ANY TIME.</p>
+								<p>NEITHER MINHTET HTOON, OTHER DEVELOPERS NOR ANY CONTRIBUTORS MAYBE HELD RESPONSIBLE
+									FOR ANY DAMAGES INCURRED ON YOUR DEVICE AS A RESULT OF USING
+									THESES SERVICES. THESE MAY INCLUDE, BUT ARE NOT LIMITED TO, MALWARE, SPYWARE, ADWARE
+									AND RANSOMWARE</p>
+								<p>Services here are linked under the assumption that they are used in accordance with
+									laws in your local jurisdiction.</p>
+								<p>NEITHER MINHTET HTOON, OTHER DEVELOPERS NOR ANY CONTRIBUTORS MAYBE HELD RESPONSIBLE
+									FOR ANY BREACH OF COPYRIGHT, BREACH OF TRADEMARK OR ANY OTHER LEGAL LIABILITY,
+									CRIMINAL OR CIVIL, THAT MAY RESULT FROM IMPROPER USAGE OF THESE SERVICES</p>
 								<p><b>USE AT YOUR OWN RISK</b></p>
 							</div>
 							<div class="table">
